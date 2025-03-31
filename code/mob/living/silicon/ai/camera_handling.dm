@@ -2,7 +2,7 @@
 
 /turf/proc/move_camera_by_click()
 	if (usr.stat || !isAI(usr))
-		return ..()
+		return // ..() // no parent proc
 	//try to find the closest working camera in the same area, switch to it
 
 	var/area/A = get_area(src)
@@ -24,7 +24,7 @@
 			best_cam = C
 
 	if(!best_cam)
-		return ..()
+		return // ..() // no parent proc
 	//usr:cameraFollow = null
 	usr:tracker.cease_track()
 	usr:switchCamera(best_cam)

@@ -165,7 +165,7 @@ var/list/mechanics_telepads = new/list()
 	w_class = 1.0
 	level = 2
 	var/under_floor = 0
-	var/list/particles = new/list()
+	var/list/particlez = new/list()
 
 	New()
 		mechanics = new(src)
@@ -175,10 +175,10 @@ var/list/mechanics_telepads = new/list()
 		return ..()
 
 	proc/cutParticles()
-		if(particles.len)
-			for(var/datum/particleSystem/mechanic/M in particles)
+		if(particlez.len)
+			for(var/datum/particleSystem/mechanic/M in particlez)
 				M.Die()
-			particles.Cut()
+			particlez.Cut()
 		return
 
 	process()
@@ -186,10 +186,10 @@ var/list/mechanics_telepads = new/list()
 			cutParticles()
 			return
 
-		if(particles.len != mechanics.connected_outgoing.len)
+		if(particlez.len != mechanics.connected_outgoing.len)
 			cutParticles()
 			for(var/atom/X in mechanics.connected_outgoing)
-				particles.Add(particleMaster.SpawnSystem(new /datum/particleSystem/mechanic(src.loc, X.loc)))
+				particlez.Add(particleMaster.SpawnSystem(new /datum/particleSystem/mechanic(src.loc, X.loc)))
 
 		return
 
@@ -2381,7 +2381,7 @@ var/list/mechanics_telepads = new/list()
 		if(!istype(Gun, /obj/item/gun/energy)) return
 		charging = 1
 		updateIcon()
-		return ..()
+		return // ..() // No parent proc
 
 	fire(var/datum/mechanicsMessage/input)
 		if(charging || !ready) return

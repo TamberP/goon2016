@@ -4307,18 +4307,18 @@
 	update_icon()
 		src.overlays = null
 		switch(src.temperature)
-			if (371 to INFINITY)
-				heat_overlay.icon_state = "heat+3"
-			if (351 to 370)
-				heat_overlay.icon_state = "heat+2"
-			if (331 to 350)
-				heat_overlay.icon_state = "heat+1"
-			if (270 to 289)
-				heat_overlay.icon_state = "heat-1"
+			if (-99 to 230)
+				heat_overlay.icon_state = "heat-3"
 			if (250 to 269)
 				heat_overlay.icon_state = "heat-2"
-			if (230 to -99)
-				heat_overlay.icon_state = "heat-3"
+			if (270 to 289)
+				heat_overlay.icon_state = "heat-1"
+			if (331 to 350)
+				heat_overlay.icon_state = "heat+1"
+			if (351 to 370)
+				heat_overlay.icon_state = "heat+2"
+			if (371 to INFINITY)
+				heat_overlay.icon_state = "heat+3"
 			else
 				heat_overlay.icon_state = ""
 		src.overlays += heat_overlay

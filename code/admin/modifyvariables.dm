@@ -422,13 +422,13 @@
 
 	global
 		handleCast(var/atom/selected)
-			boutput(usr, "<span style=\"color:blue\">Set [target]/var/[varname] to [selected] on all entities of the same type.</span>")
+			boutput(usr, "<span style=\"color:blue\">Set [src.target]/var/[src.varname] to [selected] on all entities of the same type.</span>")
 			for (var/datum/V in world)
-				if (istype(V, target.type))
-					V.vars[varname] = selected
-			logTheThing("admin", src, null, "modified [target]'s [varname] to [target.vars[varname]] on all entities of the same type")
-			logTheThing("diary", src, null, "modified [target]'s [varname] to [target.vars[varname]] on all entities of the same type", "admin")
-			message_admins("[key_name(src)] modified [target]'s [varname] to [target.vars[varname]] on all entities of the same type")
+				if (istype(V, src.target.type))
+					V.vars[src.varname] = selected
+			logTheThing("admin", src, null, "modified [src.target]'s [src.varname] to [src.target.vars[src.varname]] on all entities of the same type")
+			logTheThing("diary", src, null, "modified [src.target]'s [src.varname] to [src.target.vars[src.varname]] on all entities of the same type", "admin")
+			message_admins("[key_name(src)] modified [src.target]'s [src.varname] to [src.target.vars[src.varname]] on all entities of the same type")
 
 
 /client/proc/modify_variables(var/atom/O)

@@ -535,7 +535,7 @@
 		return
 	if (src.edible && (ishuman(M) || istype(M, /mob/living/critter)))
 		if (!src.Eat(M, user))
-			return ..()
+			return // ..() No parent proc
 
 	if (src.flags & SUPPRESSATTACK)
 		logTheThing("combat", user, M, "uses [src] ([type], object name: [initial(name)]) on %target%")

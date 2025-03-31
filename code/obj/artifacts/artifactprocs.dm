@@ -208,8 +208,6 @@
 					src.ArtifactActivated()
 				else if (!ACT.activator && A.activated)
 					src.ArtifactDeactivated()
-				else
-					..()
 
 	if (istype(W,/obj/item/weldingtool))
 		var/obj/item/weldingtool/WELD = W

@@ -311,8 +311,3 @@ var/global/datum/controller/processScheduler/processScheduler
 	if (hasProcess(processName))
 		var/datum/controller/process/process = nameToProcessMap[processName]
 		process.disable()
-
-/datum/controller/processScheduler/proc/sign(var/x)
-	if (x == 0)
-		return 1
-	return x / abs(x)

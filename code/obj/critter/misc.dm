@@ -506,7 +506,7 @@
 			return
 
 	proc/CustomizeMagZom(var/NM)
-		..()
+		//..()  // no parent proc
 
 		src.name = "[capitalize(NM)]'s skeleton"
 		src.desc = "A horrible skeleton, raised from the corpse of [NM] by a wizard."
@@ -613,7 +613,7 @@
 
 
 	proc/CustomizeGolem(var/datum/reagents/CR) //customise it with the reagents in a container
-		..() // ???
+		// ..() // No parent proc
 
 		for(var/current_id in CR.reagent_list)
 			var/datum/reagent/R = CR.reagent_list[current_id]

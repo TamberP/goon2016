@@ -859,7 +859,7 @@
 		message_admins("<span style=\"color:red\">Antagonist [key_name(src)] ([src.mind.special_role]) died at [log_loc(src)].</span>")
 
 	src.timeofdeath = world.time
-	return ..(gibbed)
+	return // ..(gibbed) // no parent proc
 
 /mob/proc/restrained()
 	if (src.handcuffed)

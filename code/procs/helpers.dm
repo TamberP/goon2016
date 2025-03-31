@@ -631,8 +631,6 @@ var/list/hasvar_type_cache = list()
 			return 1
 	return 0
 
-/proc/sign(x) //Should get bonus points for being the most compact code in the world!
-	. = x!=0?x/abs(x):0 //((x<0)?-1:((x>0)?1:0))
 
 /*	//Kelson's version (doesn't work)
 /proc/getline(atom/M,atom/N)
@@ -1683,7 +1681,7 @@ proc/RarityClassRoll(var/scalemax = 100, var/mod = 0, var/list/category_boundari
 /proc/is_valid_color_string(var/string)
 	if (!istext(string))
 		return 0
-	if (lentext(string) != 7)
+	if (length(string) != 7)
 		return 0
 	if (copytext(string,1,2) != "#")
 		return 0
