@@ -127,7 +127,7 @@ ClearSpecificOverlays(1, "key0", "key1", "key2") 	//Same as above but retains ca
 	else if(!prev_data) //We don't have data and we won't add an overlay
 		return 0
 
-	var/hash = hash_image(I)
+	var/hash = I ? "\ref[I]" : null
 	var/image/prev_overlay = prev_data[P_IMAGE] //overlay_refs[key]
 	if(!force && (prev_overlay == I) && hash == prev_data[P_ISTATE] ) //If it's the same image as the other one and the hashes match then do not update
 		return 0
@@ -209,11 +209,11 @@ ClearSpecificOverlays(1, "key0", "key1", "key2") 	//Same as above but retains ca
 /////////////////////////////////////////////
 //helper procs
 /////////////////////////////////////////////
-/proc/hash_image(var/image/I)
-	if(I)
-		. = md5("\ref[I][I.icon_state][I.overlays ? I.overlays.len : 0][I.color][I.alpha]")
-	else
-		. = null
+// /proc/hash_image(var/image/I)
+// 	if(I)
+// 		. = md5("\ref[I][I.icon_state][I.overlays ? I.overlays.len : 0][I.color][I.alpha]")
+// 	else
+// 		. = null
 
 
 #undef P_INDEX
