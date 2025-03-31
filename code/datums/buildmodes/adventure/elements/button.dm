@@ -117,8 +117,8 @@
 
 	New(var/L)
 		..()
-		set_dir(dir)
 		effect_overlay = new/obj/overlay/tile_effect/secondary/bookcase(loc)
+		set_dir(dir)
 		if (isturf(loc))
 			if (loc:effect_overlay)
 				effect_overlay.color = loc:effect_overlay.color
