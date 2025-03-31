@@ -1,6 +1,19 @@
 # GOONSTATION 2016 #
+# But not really #
 
-Official release of goonstation from 2016-03-04, based on revision 35cd644.
+This *was* the Official release of goonstation from 2016-03-04, based
+on revision 35cd644. The rest of the original README is continued
+below.
+
+It's been chopped about since then, with some fixes (and some heinous
+bodges) to make it compile & run under byond 516.
+
+Do feel free to poke at fixing other bits if you want, but it's mostly
+for hysterical interest.
+
+- Tam
+
+# Original README continues #
 
 The original, non-updated version of this repository is commit d8a2d60.
 
