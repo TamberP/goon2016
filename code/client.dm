@@ -197,15 +197,6 @@ var/global/list/hellbans = null
 			else if(!src.holder)
 				preferences.sanitize_name()
 
-			if (!changes && preferences.view_changelog)
-				if (!CDN_ENABLED || config.env == "dev")
-					src << browse_rsc(file("browserassets/images/changelog/postcardsmall.jpg"))
-					src << browse_rsc(file("browserassets/images/changelog/somerights20.png"))
-					src << browse_rsc(file("browserassets/images/changelog/88x31.png"))
-				changes()
-
-			if (src.holder && rank_to_level(src.holder.rank) >= LEVEL_MOD) // No admin changelog for goat farts (Convair880).
-				admin_changes()
 			load_antag_tokens()
 			if (src.byond_version < 509)
 				if (alert(src, "Please update BYOND to version 509! Would you like to be taken to the download page?", "ALERT", "Yes", "No") == "Yes")
@@ -1062,20 +1053,6 @@ var/global/curr_day = null
 	M.mouse_opacity = 0
 
 	C.screen += M
-
-/client/verb/changes()
-	set category = "Commands"
-	set name = "Changelog"
-	set desc = "Show or hide the changelog"
-
-	if (winget(src, "changes", "is-visible") == "true")
-		src.Browse(null, "window=changes")
-	else
-		var/changelogHtml = grabResource("html/changelog.html")
-		var/data = changelog:html
-		changelogHtml = replacetext(changelogHtml, "<!-- HTML GOES HERE -->", "[data]")
-		src.Browse(changelogHtml, "window=changes;size=500x650;title=Changelog;")
-		src.changes = 1
 
 /client/verb/wiki()
 	set category = "Commands"

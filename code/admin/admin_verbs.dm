@@ -12,7 +12,6 @@ var/list/admin_verbs = list(
 
 2 = list(\
 // LEVEL_MOD, moderator
-/client/proc/admin_changes,\
 /client/proc/admin_play,\
 /client/proc/admin_observe,\
 /client/proc/voting,\
@@ -1158,17 +1157,3 @@ var/list/fun_images = list()
 	logTheThing("admin", usr ? usr : src, null, "gave everyone a pet [pet_path]!")
 	logTheThing("diary", usr ? usr : src, null, "gave everyone a pet [pet_path]!", "admin")
 	message_admins("[key_name(usr ? usr : src)] gave everyone a pet [pet_path]!")
-
-/client/proc/admin_changes()
-	set category = "Admin"
-	set name = "Admin Changelog"
-	set desc = "Show or hide the admin changelog"
-	admin_only
-
-	if (winget(src, "adminchanges", "is-visible") == "true")
-		src.Browse(null, "window=adminchanges")
-	else
-		var/changelogHtml = grabResource("html/changelog.html")
-		var/data = admin_changelog:html
-		changelogHtml = replacetext(changelogHtml, "<!-- HTML GOES HERE -->", "[data]")
-		src.Browse(changelogHtml, "window=adminchanges;size=500x650;title=Admin+Changelog;")
